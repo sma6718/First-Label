@@ -1,33 +1,193 @@
-// Extra small devices (portrait phones, less than 576px)
-// No media query since this is the default in Bootstrap
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-
-@media screen and (min-width:1200px){
-  .navlink{
-    text-align: center;
-  }
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.container-fluid{
+.header{
+  display: grid;
+  grid-template-columns: 350px auto 380px 30px;
+  grid-template-areas:
+  "logo-area navbar-area searchbar-area nz";
+  border-bottom: solid;
+  border-color: grey;
+  border-width: thin;
+}
+
+.logo-area{
+  grid-area: logo-area;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 80px 50px;
+  grid-template-areas:
+  "logo"
+  "title";
+
+}
+
+.logo img{
   width: 100%;
 }
 
 .logo{
-  height: 70px;
+  grid-area: logo;
 }
 
-.logo-image{
-  height: 90%;
-  width: auto;
+.title{
+  grid-area: title;
+
+}
+
+.title h4{
+  padding-left: 10%;
+}
+
+.navbar-area{
+  margin: 1%;
+  grid-area: navbar-area;
+  border-left: solid;
+  border-color: grey;
+  border-width: thin;
+
+}
+
+.navbar-area a{
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  padding-left: 8%;
+  padding-top: 3%;
+  font-size: 30px;
+}
+
+.navbar-area a:hover{
+  opacity: 0.8;
+}
+
+.searchbar-area{
+  grid-area: searchbar-area;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "searchbar"
+  "ph";
+
+}
+
+.NZ{
+  grid-area:nz;
+
+}
+
+.NZ img{
+  height: 120px;
+  float: right;
+}
+
+.searchbar{
+  grid-area: searchbar;
+}
+
+.searchbar{
+  float: right;
+}
+
+.search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 18px;
+  font-size: 17px;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 8px 10px;
+  margin-top: 18px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+
+.ph{
+  grid-area: ph;
+  border-top: solid;
+  border-width: thin;
+  margin-left: 22px;
+  margin-right: 16px;
+}
+
+.ph p{
+  float: right;
+
+}
+
+@media screen and (max-width: 1580px){
+  .header{
+    display: grid;
+    grid-template-columns: 350px auto 100px;
+    grid-template-areas:
+    "logo-area navbar-area nz";
+    border-bottom: solid;
+    border-color: grey;
+    border-width: thin;
+  }
+
+  .searchbar-area{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 1270px){
+  .header{
+    display: grid;
+    grid-template-columns: 350px auto;
+    grid-template-areas:
+    "logo-area navbar-area";
+    border-bottom: solid;
+    border-color: grey;
+    border-width: thin;
+  }
+
+  .searchbar-area{
+    display: none;
+  }
+
+  .NZ{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 675px){
+  .header{
+    display: grid;
+    grid-template-columns: 350px;
+    grid-template-areas:
+    "logo-area";
+    border-bottom: solid;
+    border-color: grey;
+    border-width: thin;
+  }
+
+  .searchbar-area{
+    display: none;
+  }
+
+  .NZ{
+    display: none;
+  }
+
+  .navbar-area{
+    display: none;
+  }
 }
